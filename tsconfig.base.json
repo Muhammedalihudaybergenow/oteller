@@ -17,9 +17,7 @@
       "@libs/broker": ["libs/broker/src/index.ts"],
       "@libs/cache": ["libs/cache/src/index.ts"],
       "@libs/common": ["libs/common/src/index.ts"],
-      "@libs/database": ["libs/database/src/index.ts"],
-      "@apps/api": ["apps/api/src/index.ts"],
-      "@apps/api/*": ["apps/api/src/*"]
+      "@libs/database": ["libs/database/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

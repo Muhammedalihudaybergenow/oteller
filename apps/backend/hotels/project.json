@@ -1,0 +1,26 @@
+{
+  "name": "hotels",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/hotels/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "hotels:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hotels:build:development"
+        },
+        "production": {
+          "buildTarget": "hotels:build:production"
+        }
+      }
+    }
+  }
+}

@@ -43,8 +43,33 @@
         "apps/users-e2e/**/*",
         "apps/notifications-e2e/**/*",
         "apps/hotels-e2e/**/*",
-        "apps/rents-e2e/**/*"
+        "apps/rents-e2e/**/*",
+        "apps/backend/api-e2e/**/*",
+        "apps/backend/notifications-e2e/**/*",
+        "apps/backend/files-e2e/**/*",
+        "apps/backend/hotels-e2e/**/*",
+        "apps/backend/rents-e2e/**/*"
       ]
+    },
+    {
+      "plugin": "@nx/react-native/plugin",
+      "options": {
+        "startTargetName": "start",
+        "upgradeTargetName": "update",
+        "bundleTargetName": "bundle",
+        "podInstallTargetName": "pod-install",
+        "runIosTargetName": "run-ios",
+        "runAndroidTargetName": "run-android",
+        "buildIosTargetName": "build-ios",
+        "buildAndroidTargetName": "build-android",
+        "syncDepsTargetName": "sync-deps"
+      }
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
     }
   ],
   "targetDefaults": {
@@ -52,6 +77,9 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
     }
   }
 }
