@@ -8,9 +8,7 @@
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "api:build",
         "runBuildTargetDependencies": false
@@ -23,12 +21,7 @@
           "buildTarget": "api:build:production"
         }
       }
-    },
-    "docker-build": {
-      "dependsOn": [
-        "build"
-      ],
-      "command": "docker build -f apps/api/Dockerfile . -t api"
     }
-  }
+  },
+  "dependencies": ["database"]
 }

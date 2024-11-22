@@ -1,10 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -38,8 +35,23 @@
         "targetName": "test"
       },
       "exclude": [
-        "apps/api-e2e/**/*"
+        "**/apps/*-e2e/**/*",
+        "**/*-e2e/**/*",
+        "apps-e2e/**/*",
+        "apps/files-e2e/**/*",
+        "apps/api-e2e/**/*",
+        "apps/users-e2e/**/*",
+        "apps/notifications-e2e/**/*",
+        "apps/hotels-e2e/**/*",
+        "apps/rents-e2e/**/*"
       ]
     }
-  ]
+  ],
+  "targetDefaults": {
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    }
+  }
 }

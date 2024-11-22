@@ -1,0 +1,20 @@
+{
+  "name": "broker",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/broker/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/broker",
+        "tsConfig": "libs/broker/tsconfig.lib.json",
+        "packageJson": "libs/broker/package.json",
+        "main": "libs/broker/src/index.ts",
+        "assets": ["libs/broker/*.md"]
+      }
+    }
+  }
+}
